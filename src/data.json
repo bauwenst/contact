@@ -1,0 +1,14 @@
+{
+	"name": {
+		"first": "Thomas",
+		"last": "Bauwens"
+	},
+	"phone": [31, 485, 90, 87, 57],
+	"email": {
+		"prefix": ["thomas", ".", "bauwens"],
+		"suffix": ["kuleuven", "be"]
+	},
+	"linkedin": "thomas-bauwens-ir",
+	"github": "bauwenst",
+	"scholar": "IGVkWVkAAAAJ"
+}
