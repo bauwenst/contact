@@ -27,7 +27,21 @@ export default function ContactPage() {
   const [showQR, setShowQR] = useState(false);
   const [url, setUrl] = useState("");
 
-  const radius = 240;
+  const [radius, setRadius] = useState(140);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      const w = window.innerWidth;
+      // responsive scaling
+      if (w < 500) setRadius(110);
+      else if (w < 800) setRadius(150);
+      else setRadius(240);
+    };
+
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+    return () => window.removeEventListener("resize", updateRadius);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -73,8 +87,9 @@ export default function ContactPage() {
       )}
 
       {/* Name */}
-      <h1 className="absolute text-3xl md:text-5xl font-light tracking-wide">
-        {data["name"]["first"] + " " + data["name"]["last"]}
+      <h1 className="absolute text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-center" style={{ fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif" }}>
+        <div>{data["name"]["first"]}</div>
+        <div>{data["name"]["last"]}</div>
       </h1>
       {/* Icons */}
       <div className="relative w-[400px] h-[400px]">
